@@ -27,7 +27,12 @@ Users.statics.findOneByUsername = function(username) {
     }).exec();
 };
 
-Users.statics.verify = function(password) {
+Users.methods.verify = function(password) {
+    return this.password === password;
+};
+
+// Users 스키마의 admin 값을 true 로 
+Users.methods.assignAdmin  = function() {
     this.admin = true;
     return this.save();
 };
