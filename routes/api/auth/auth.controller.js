@@ -109,3 +109,46 @@ exports.login = (req, res) => {
     .then(respond)
     .catch(onError);
 };
+
+exports.check = (req, res) => {
+
+    // 헤더의 토큰 혹은 쿼리스트링으로 넘어온 토큰
+    const token = req.headers['x-access-token'] || req.query.token;
+
+    if ( !token ) {
+        return res.status(403).json({
+            success : false,
+            message : 'Login first!'
+        });
+    }
+
+    // 디코딩 된 token 반환
+    const promise = new Promise( (resolve, reject) => {
+        jwt.verify( // token, secret, [callback]
+            token,
+            req.app.get('jwt-secret'),
+            (err, decodeed) => {
+                if ( err ) reject(err);
+                resolve(decodeed);
+            }
+        );
+    });
+
+    const respond = (token) => {
+        res.json({
+            success : true,
+            info : token
+        });
+    };
+
+    const onError = (error) => {
+        res.status(403).json({
+            success : false,
+            message : error.message
+        });
+    };
+
+    promise
+    .then(respond)
+    .catch(onError);
+};
