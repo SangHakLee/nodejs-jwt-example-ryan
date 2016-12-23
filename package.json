@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-jwt-example-ryan",
+  "version": "1.0.0",
+  "description": "by https://velopert.com/2448",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangHakLee/nodejs-jwt-example-ryan.git"
+  },
+  "keywords": [
+    "jwt"
+  ],
+  "author": "sanghaklee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SangHakLee/nodejs-jwt-example-ryan/issues"
+  },
+  "homepage": "https://github.com/SangHakLee/nodejs-jwt-example-ryan#readme"
+}
