@@ -17,11 +17,13 @@ app.use(morgan('dev'));
 app.set('jwt-secret', config.secret); // config.js 파일의 secret을 사용
 
 app.get('/', (req, res) => {
-    res.send('JWT index');
+	res.send('JWT index');
 });
 
+app.use('/api', require('./routes/api'));
+
 app.listen(port, () => {
-    console.log(`Express running on ${port}`);
+	console.log(`Express running on ${port}`);
 });
 
 
@@ -30,5 +32,5 @@ mongoose.connect(config.mongodbUri);
 const db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', () => {
-    console.log('mongoose is running');
+	console.log('mongoose is running');
 });
