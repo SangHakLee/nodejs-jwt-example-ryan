@@ -8,7 +8,7 @@ const authMiddleware = (req, res, next) => {
 	const token = req.headers['x-access-token'] || req.query.token;
 
 	if ( token ) {
-		return res.statue(403).json({
+		return res.status(403).json({
 			success : false,
 			message : 'Login first'
 		});

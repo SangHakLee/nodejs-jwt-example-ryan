@@ -7,8 +7,22 @@ const Users = require('../../../models/users');
 // 회원가입 라우터
 exports.register = (req, res) => {
 	const username = req.body.username;
-	const password = req.body.username;
+	const password = req.body.password;
 	let newUser  = null;
+
+	if ( !username ) {
+		return res.status(403).json({
+			success : false,
+			message : 'username is empty !'
+		});
+	}
+	if ( !password ) {
+		return res.status(403).json({
+			success : false,
+			message : 'password is empty !'
+		});
+	}
+
 
 	// 사용자 추가 함수
 	const create = (user) => {
@@ -58,6 +72,19 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;
+
+	if ( !username ) {
+		return res.status(403).json({
+			success : false,
+			message : 'username is empty !'
+		});
+	}
+	if ( !password ) {
+		return res.status(403).json({
+			success : false,
+			message : 'password is empty !'
+		});
+	}
 
 	const secret = req.app.get('jwt-secret'); // app.js 에서 set 한 변수
 
