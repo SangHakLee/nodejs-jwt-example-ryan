@@ -21,6 +21,7 @@
   "homepage": "https://github.com/SangHakLee/nodejs-jwt-example-ryan#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.4",
