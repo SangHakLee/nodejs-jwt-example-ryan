@@ -10,26 +10,39 @@
 			flex-direction: column;
 			background: #fff;
 		}
+
+		font {
+			cursor:pointer;
+		}
+
+		#id {
+		    overflow: hidden;
+			background-color: #546E7A;
+			color: #546E7A;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="row">
-		<div class="grey lighten-4" style="width:800px;">
+		<div class="grey lighten-4" style="width:600px;">
 			<div class="card blue-grey darken-1">
 				<div class="card-content white-text">
 					<span class="card-title">Your Token</span>
-                    <br>
+					<br>
 
-					<font color="red"><%=token_arr[0]%></font>.
-                    <font color="purple" style="word-wrap: break-word"><%=token_arr[1]%></font>.
-                    <font color="skyblue"><%=token_arr[2]%></font>
+					<font color="red" onclick="Materialize.toast('Header', 800);"><%=token_arr[0]%></font>.
+					<font color="purple" onclick="Materialize.toast('Payload', 800);" style="word-wrap: break-word"><%=token_arr[1]%></font>.
+					<font color="skyblue" onclick="Materialize.toast('Signature', 800);"><%=token_arr[2]%></font>
 
-                    <input type="hidden" value="<%=token%>">
+					<input id="token" type="text" value="<%=token%>" readonly />
 				</div>
+				<button id="copy" class="waves-effect waves-light btn" data-clipboard-target="#token">
+					<i class="material-icons left">done</i>Copy Token
+				</button>
 				<div class="card-action">
 					<a href="/web/login">Back</a>
-                    <a href="https://jwt.io/" target="_blank">jwt Home Page</a>
+					<a href="https://jwt.io/" target="_blank">jwt Home Page</a>
 				</div>
 			</div>
 		</div>
@@ -37,6 +50,12 @@
 
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			new Clipboard('.btn');
+		});
+	</script>
 </body>
 
 </html>

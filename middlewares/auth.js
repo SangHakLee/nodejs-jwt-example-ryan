@@ -5,7 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
 
-	const token = req.headers['x-access-token'] || req.query.token;
+	var token = req.headers['x-access-token'] || req.query.token;
+	token = token.replace(/(\s*)/g, ""); // 공백제거;
 	if ( !token ) {
 		return res.status(403).json({
 			success : false,
