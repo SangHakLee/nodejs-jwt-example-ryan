@@ -141,8 +141,8 @@ exports.check = (req, res) => {
 
 	res.json({
 		success: true,
-		info : req.decodeed
-	})
+		info : req.decodeed // 미들웨어에서 req.decodeed 에 정보 넘어줌
+	});
 
 	/** //middlewares/auth.js 에서 인증 관리하기 때문에 주석
 	// 헤더의 토큰 혹은 쿼리스트링으로 넘어온 토큰

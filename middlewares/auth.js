@@ -33,8 +33,8 @@ const authMiddleware = (req, res, next) => {
 
 	promise
 	.then( (decodeed) => {
-		req.decodeed = decodeed;
-		next();
+		req.decodeed = decodeed; // 디코드된 데이터를 req 에 담는다.
+		next(); // 실제 라우터 단 로직을 수행하기 위해 next()
 	})
 	.catch(onError);
 };
