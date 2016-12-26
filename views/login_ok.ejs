@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<style>
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+			background: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="row">
+		<div class="grey lighten-4" style="width:800px;">
+			<div class="card blue-grey darken-1">
+				<div class="card-content white-text">
+					<span class="card-title">Your Token</span>
+                    <br>
+
+					<font color="red"><%=token_arr[0]%></font>.
+                    <font color="purple" style="word-wrap: break-word"><%=token_arr[1]%></font>.
+                    <font color="skyblue"><%=token_arr[2]%></font>
+
+                    <input type="hidden" value="<%=token%>">
+				</div>
+				<div class="card-action">
+					<a href="/web/login">Back</a>
+                    <a href="https://jwt.io/" target="_blank">jwt Home Page</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>

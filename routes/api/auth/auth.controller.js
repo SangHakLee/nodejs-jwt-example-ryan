@@ -119,10 +119,20 @@ exports.login = (req, res) => {
 	};
 
 	const respond = (token) => {
-		res.json({
-			message : 'loggin Ok!',
-			token
-		});
+
+		// res.json({
+		// 	message : 'loggin Ok!',
+		// 	token
+		// });
+
+		// web 용
+		res.render(
+			'login_ok',
+			{
+				'token' : token,
+				'token_arr' : token.split('.')
+			}
+		);
 	};
 
 	const onError = (error) => {
